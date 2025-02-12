@@ -5,7 +5,7 @@ import cv2
 from PIL import Image
 import os
 
-torch.classes.__path__ = []
+torch.classes.__path__ = [os.path.join(torch.__path__[0], torch.classes.__file__)]  # Fix for torch classes not found error
 
 class CustomCnnModel(nn.Module):
     def __init__(self, input_dim, num_classes):
